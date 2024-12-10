@@ -1,11 +1,13 @@
+telebot, requests
+
 # Инициализация бота с использованием его токена
 bot = telebot.TeleBot("")
 
-
+update_log = "в этом обновлении была добавленна команда /update! за обновлениями можете следить в моём аккаунте GitHub 88phantom88"
 # Обработчик команды '/start' и '/hello'
 @bot.message_handler(commands=['start', 'hello'])
 def send_welcome(message):
-    bot.reply_to(message, f'Привет! Я бот {bot.get_me().first_name}!')
+    bot.reply_to(message, f'Привет! Я бот {bot.get_me().first_name}!ты можешь узнать какие комманды тут есть благодаря /commands!')
 
 @bot.message_handler(commands=['name'])
 def send_name(message):
@@ -42,7 +44,11 @@ def duck(message):
 
 @bot.message_handler(commands=['commands'])
 def send_name(message):
-    bot.reply_to(message, 'hello, name, heh(число), mem, mem2, duck')
+    bot.reply_to(message, 'hello, name, heh(число), mem, mem2, duck, update')
+
+@bot.message_handler(commands=["update"])
+def update(message):
+    bot.reply_to(message,update_log)
 
 
 
