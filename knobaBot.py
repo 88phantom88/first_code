@@ -1,9 +1,9 @@
-telebot, requests
+import telebot, requests
 
 # Инициализация бота с использованием его токена
 bot = telebot.TeleBot("")
 
-update_log = "в этом обновлении была добавленна команда /update! за обновлениями можете следить в моём аккаунте GitHub 88phantom88"
+update_log = "в этом обновлении были добавленны команды /bottles и /bottles2! за обновлениями можете следить в моём аккаунте GitHub 88phantom88"
 # Обработчик команды '/start' и '/hello'
 @bot.message_handler(commands=['start', 'hello'])
 def send_welcome(message):
@@ -28,6 +28,16 @@ def send_mem(message):
 @bot.message_handler(commands=['mem2'])
 def send_mem(message):
     with open('images/9e58e8a14f56f11ad66fa46b6d81407e.jpg', 'rb') as f:
+        bot.send_photo(message.chat.id, f)
+
+@bot.message_handler(commands=['bottles'])
+def send_mem(message):
+    with open('images/p20o1Zv8fQ_bR5Vr4WdL759-8LRBeMg1DXfBXA0QY5RUNbMSknCKH_AxGPVrzZsn91qL5wvqHK5Cv7S63Tvv4hI5TZFPOMkeDuJBSoQny9_PXyVgcGkNlUimZXnNlPOx1GUzRGSnqBizpr6X6YpcQxMOz1ber_lrFltw26v9E.webp', 'rb') as f:
+        bot.send_photo(message.chat.id, f)
+
+@bot.message_handler(commands=['bottles2'])
+def send_mem(message):
+    with open('images/p20o1Zv8fQ_bR5Vr4WdL759-8LRBeMg1DXfBXA0VowFh4ENSp3WfWtBxCND-vdviNzrb5yuaPKtiSoHPuBuPZ3JpffTvOBkeDvLR2nQny9_PXyVgcGkNlUimZXnNlPOx1GUzRGSnqBizpr6X6YpcQxMOz1ber_lrFltw26v9E.webp', 'rb') as f:
         bot.send_photo(message.chat.id, f)
 
 def get_duck_image_url():
